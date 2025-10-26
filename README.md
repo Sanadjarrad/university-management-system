@@ -175,6 +175,6 @@ mvn test
 
 **DepartmentController() - >** CRUD Operations for departments, manage organizational structure
 
-**ReportController() - >** Generate student and department reports in multiple formats
+**ReportController() - >** Generate student and department reports in multiple formats, reports are generated and stored in the "reports" directory under the main directory (in both sync and async endpoints)
 
 **ReportControllerAsync() - >** Generate student and department reports in multiple formats asynchronously
