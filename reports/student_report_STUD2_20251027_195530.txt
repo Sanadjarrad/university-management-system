@@ -1,0 +1,16 @@
+STUDENT REPORT
+Generated: 2025-10-27 19:55:30
+==============
+
+Student Details:
+---------------
+ID: STUD2
+Name: Bob
+Email: null
+Phone: null
+Enrollment Year: null
+Department: Computer Science
+
+Enrolled Classes:
+----------------
+No classes enrolled.
