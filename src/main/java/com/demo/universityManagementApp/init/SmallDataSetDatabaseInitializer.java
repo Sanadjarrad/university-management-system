@@ -52,7 +52,7 @@ import static com.demo.universityManagementApp.util.Helper.Generate.generateStud
  * Usage is restricted to test environments (annotated with {@code @Profile("test")})
  * and should not be used in production.
  */
-@Profile("test")
+@Profile({"test", "!prod"})
 @Component
 @RequiredArgsConstructor
 @Slf4j
