@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
  * This setup is useful for automated integration testing, allowing test data to be loaded programmatically
  * at application startup without manual intervention.
  */
-@Profile("test")
+@Profile({"test", "!prod"})
 @Component
 @RequiredArgsConstructor
 @Slf4j
