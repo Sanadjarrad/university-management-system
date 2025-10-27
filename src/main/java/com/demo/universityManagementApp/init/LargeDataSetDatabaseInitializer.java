@@ -45,7 +45,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Usage is intended solely for test environments (annotated with {@code @Profile("test")}) and should
  * never be used in production.
  */
-@Profile("test")
+@Profile({"test", "!prod"})
 @Component
 @RequiredArgsConstructor
 @Slf4j
