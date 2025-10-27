@@ -1,0 +1,16 @@
+STUDENT REPORT
+Generated: 2025-10-27 19:55:30
+==============
+
+Student Details:
+---------------
+ID: STUD1
+Name: Sanad Anwar Jarrad
+Email: sajarrad24@university.com
+Phone: 0791234567
+Enrollment Year: 2024
+Department: Computer Science
+
+Enrolled Classes:
+----------------
+No classes enrolled.
