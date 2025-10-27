@@ -20,6 +20,12 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableMethodSecurity
 public class SecurityConfig {
 
+    @Value("${USER_PASSWORD}")
+    private String userPassword;
+
+    @Value("${ADMIN_PASSWORD}")
+    private String adminPassword;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -44,13 +50,13 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         UserDetails admin = User.builder()
                 .username("admin")
-                .password(passwordEncoder().encode("123456789!@#$"))
+                .password(passwordEncoder().encode(adminPassword))
                 .roles("ADMIN")
                 .build();
 
         UserDetails user = User.builder()
                 .username("user")
-                .password(passwordEncoder().encode("987654321!@#$"))
+                .password(passwordEncoder().encode(userPassword))
                 .roles("USER")
                 .build();
 
