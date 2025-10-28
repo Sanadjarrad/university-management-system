@@ -70,7 +70,7 @@ class AsyncReportServiceTest {
         testStudent = Student.builder()
                 .externalId("STUD1")
                 .name("Sanad Anwar Jarrad")
-                .email("sajarrad24@university.com")
+                .email("sajarrad24@DigitinaryUniversity.com")
                 .phone("0791234567")
                 .department(testDepartment)
                 .enrollmentYear(2024)
@@ -85,7 +85,7 @@ class AsyncReportServiceTest {
         testLecturer = Lecturer.builder()
                 .externalId("LECT1")
                 .name("Sanad Jarrad")
-                .email("sanad.jarrad@university.com")
+                .email("sanad.jarrad@DigitinaryUniversity.com")
                 .phone("0781234567")
                 .department(testDepartment)
                 .build();
@@ -120,7 +120,7 @@ class AsyncReportServiceTest {
             Student student = Student.builder()
                     .externalId(studentId)
                     .name("Student " + studentId)
-                    .email(studentId + "@university.com")
+                    .email(String.format("%s@DigitinaryUniversity.com", studentId))
                     .phone("0790000000")
                     .department(testDepartment)
                     .enrollmentYear(2024)
@@ -169,7 +169,7 @@ class AsyncReportServiceTest {
         CompletableFuture<ReportResponse> resultFuture = asyncReportService.generateStudentReportAsync("UNKNOWN", ReportFormat.TXT);
 
         ExecutionException executionException = assertThrows(ExecutionException.class, () -> resultFuture.get(5, TimeUnit.SECONDS));
-        assertInstanceOf(RuntimeException.class, executionException.getCause());
+        assertInstanceOf(ReportGenerationException.class, executionException.getCause());
     }
 
 
@@ -188,8 +188,8 @@ class AsyncReportServiceTest {
     void generateBulkReportsAsync_MultipleStudents_ConcurrentExecution() throws Exception {
         Student student2 = Student.builder()
                 .externalId("STUD2")
-                .name("Jane Doe")
-                .email("jane.doe@university.com")
+                .name("Test two")
+                .email("test.two@DigitinaryUniversity.com")
                 .phone("0797654321")
                 .department(testDepartment)
                 .enrollmentYear(2024)
@@ -221,7 +221,7 @@ class AsyncReportServiceTest {
             Student student = Student.builder()
                     .externalId(studentId)
                     .name("Student " + studentId)
-                    .email(studentId + "@university.com")
+                    .email(String.format("%s@DigitinaryUniversity.com", studentId))
                     .phone("0790000000")
                     .department(testDepartment)
                     .enrollmentYear(2024)
@@ -266,13 +266,13 @@ class AsyncReportServiceTest {
     void generateBulkReportsAsync_UsesVirtualThreadExecutor() throws Exception {
         Student student1 = Student.builder()
                 .externalId("STUD1")
-                .name("Alice")
+                .name("studentOne")
                 .department(testDepartment)
                 .build();
 
         Student student2 = Student.builder()
                 .externalId("STUD2")
-                .name("Bob")
+                .name("studentTwo")
                 .department(testDepartment)
                 .build();
 
