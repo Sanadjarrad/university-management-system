@@ -119,7 +119,7 @@ class AsyncReportServiceTest {
 
             Student student = Student.builder()
                     .externalId(studentId)
-                    .name("Student " + studentId)
+                    .name(String.format("Student %s", studentId))
                     .email(String.format("%s@DigitinaryUniversity.com", studentId))
                     .phone("0790000000")
                     .department(testDepartment)
@@ -220,7 +220,7 @@ class AsyncReportServiceTest {
             String studentId = invocation.getArgument(0);
             Student student = Student.builder()
                     .externalId(studentId)
-                    .name("Student " + studentId)
+                    .name(String.format("Student %s", studentId))
                     .email(String.format("%s@DigitinaryUniversity.com", studentId))
                     .phone("0790000000")
                     .department(testDepartment)
@@ -442,4 +442,6 @@ class AsyncReportServiceTest {
         assertTrue(result.getFileSize() > 0);
     }
 }
+
+
 
